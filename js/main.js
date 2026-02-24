@@ -93,6 +93,7 @@ class TigerExperience {
     }
 
     setupScrollTrigger() {
+        // Desktop Canvas Animation
         gsap.to(this.state, {
             frame: this.frameCount - 1,
             snap: "frame",
@@ -105,6 +106,41 @@ class TigerExperience {
                 onUpdate: () => requestAnimationFrame(() => this.render())
             }
         });
+
+        // Mobile Image & Text Animation
+        const isMobile = window.innerWidth <= 768;
+        if (isMobile) {
+            const mobileBg = document.querySelector('.mobile-hero-bg');
+            const heroText = document.querySelector('.hero-text');
+
+            if (mobileBg) {
+                gsap.to(mobileBg, {
+                    scale: 1.2,
+                    ease: "none",
+                    scrollTrigger: {
+                        trigger: this.heroSection,
+                        start: "top top",
+                        end: "bottom bottom",
+                        scrub: true
+                    }
+                });
+            }
+
+            if (heroText) {
+                gsap.to(heroText, {
+                    y: -100,
+                    opacity: 0.5,
+                    scale: 0.9,
+                    ease: "none",
+                    scrollTrigger: {
+                        trigger: this.heroSection,
+                        start: "top 20%",
+                        end: "bottom bottom",
+                        scrub: true
+                    }
+                });
+            }
+        }
     }
 
     resize() {
