@@ -67,9 +67,23 @@
                         <path d="M16 10a4 4 0 0 1-8 0"></path>
                     </svg>
                 </button>
+                <button class="icon-btn hamburger-menu" id="hamburger-toggle" aria-label="Toggle Menu">
+                    <div class="hamburger-inner"></div>
+                </button>
             </div>
         </div>
     </nav>
+    <div class="mobile-nav" id="mobile-nav">
+        <div class="mobile-nav-container">
+            <div class="mobile-nav-links">
+                <a href="new.html">New & Featured</a>
+                <a href="men.html">Men</a>
+                <a href="women.html">Women</a>
+                <a href="kids.html">Kids</a>
+                <a href="sale.html">Sale</a>
+            </div>
+        </div>
+    </div>
     <div class="page-header container">
         <h1 class="section-title text-black">KIDS' COLLECTION</h1>
         <p class="description mx-auto mt-4" style="max-width: 600px;">Keep them moving with Nike kids' performance
@@ -312,13 +326,16 @@
     <!-- Scripts -->
     <script src="https://unpkg.com/@studio-freight/lenis@1.0.35/dist/lenis.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="../js/nav.js"></script>
     <script>
-        const lenis = new Lenis();
-        function raf(time) {
-            lenis.raf(time);
+        if (typeof Lenis !== 'undefined') {
+            const lenis = new Lenis();
+            function raf(time) {
+                lenis.raf(time);
+                requestAnimationFrame(raf);
+            }
             requestAnimationFrame(raf);
         }
-        requestAnimationFrame(raf);
     </script>
 </body>
 

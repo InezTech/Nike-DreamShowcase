@@ -47,14 +47,6 @@ class TigerExperience {
 
         this.lenis.on('scroll', (e) => {
             ScrollTrigger.update();
-            const navbar = document.getElementById('navbar');
-            if (navbar) {
-                if (window.scrollY > 50) {
-                    navbar.classList.add('scrolled');
-                } else {
-                    navbar.classList.remove('scrolled');
-                }
-            }
         });
 
         gsap.ticker.add((time) => {

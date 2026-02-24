@@ -40,6 +40,10 @@ body {
     overflow-x: hidden;
 }
 
+body.no-scroll {
+    overflow: hidden;
+}
+
 img,
 canvas {
     display: block;
@@ -255,10 +259,114 @@ h6,
     color: var(--color-black);
 }
 
+/* HAMBURGER MENU */
+.hamburger-menu {
+    display: none;
+    width: 30px;
+    height: 30px;
+    position: relative;
+    z-index: 1001;
+}
+
+.hamburger-inner {
+    width: 24px;
+    height: 2px;
+    background-color: var(--color-white);
+    position: relative;
+    transition: background-color 0.3s ease;
+}
+
+.hamburger-inner::before,
+.hamburger-inner::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: var(--color-white);
+    left: 0;
+    transition: transform 0.3s ease, top 0.3s ease;
+}
+
+.hamburger-inner::before {
+    top: -8px;
+}
+
+.hamburger-inner::after {
+    top: 8px;
+}
+
+.navbar.scrolled .hamburger-inner,
+.navbar.scrolled .hamburger-inner::before,
+.navbar.scrolled .hamburger-inner::after {
+    background-color: var(--color-black);
+}
+
+.hamburger-menu.active .hamburger-inner {
+    background-color: transparent !important;
+}
+
+.hamburger-menu.active .hamburger-inner::before {
+    top: 0;
+    transform: rotate(45deg);
+    background-color: var(--color-black) !important;
+}
+
+.hamburger-menu.active .hamburger-inner::after {
+    top: 0;
+    transform: rotate(-45deg);
+    background-color: var(--color-black) !important;
+}
+
 @media (max-width: 900px) {
     .navbar-links {
         display: none;
     }
+
+    .hamburger-menu {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+/* MOBILE NAV OVERLAY */
+.mobile-nav {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 100%;
+    height: 100vh;
+    background-color: var(--color-white);
+    z-index: 1000;
+    transition: right 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+}
+
+.mobile-nav.active {
+    right: 0;
+}
+
+.mobile-nav-links {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    text-align: center;
+}
+
+.mobile-nav-links a {
+    font-family: var(--font-heading);
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--color-black);
+    text-transform: uppercase;
+    transition: transform 0.3s ease;
+}
+
+.mobile-nav-links a:hover {
+    transform: scale(1.1);
 }
 
 /* 1. HERO - TIGER SCROLLTELLING */
@@ -267,6 +375,12 @@ h6,
     height: 800vh;
     background-color: var(--color-black);
     width: 100%;
+}
+
+@media (max-width: 768px) {
+    .hero {
+        height: 400vh;
+    }
 }
 
 .hero-sticky {
@@ -502,34 +616,71 @@ footer {
 
 /* P3 - BANNER */
 .p3-banner {
-    padding: 0 2rem;
-    margin-bottom: 6rem;
+    padding: 0 4rem;
+    margin-bottom: 8rem;
 }
 
 .banner-image {
     width: 100%;
-    height: 85vh;
-    background: url('https://images.unsplash.com/photo-1491553895911-0055eca6402d?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80') center/cover no-repeat;
+    height: 90vh;
     display: flex;
     justify-content: center;
     align-items: center;
     position: relative;
+    overflow: hidden;
+    border-radius: 4px;
+}
+
+.banner-img-element {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+    transform: scale(1.1);
+    transition: transform 1.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.p3-banner:hover .banner-img-element {
+    transform: scale(1);
 }
 
 .banner-image::after {
     content: '';
     position: absolute;
     inset: 0;
-    background: rgba(0, 0, 0, 0.3);
+    background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.4));
+    z-index: 2;
 }
 
 .banner-text {
     position: relative;
-    z-index: 2;
+    z-index: 3;
     color: var(--color-white);
     text-align: center;
-    font-size: clamp(3.5rem, 8vw, 7rem);
-    max-width: 1000px;
+    font-size: clamp(3rem, 10vw, 8.5rem);
+    max-width: 1200px;
+    line-height: 0.9;
+    letter-spacing: -3px;
+    text-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+@media (max-width: 768px) {
+    .p3-banner {
+        padding: 0 1rem;
+        margin-bottom: 5rem;
+    }
+
+    .banner-image {
+        height: 75vh;
+    }
+
+    .banner-text {
+        font-size: clamp(2.5rem, 12vw, 4.5rem);
+        letter-spacing: -1px;
+    }
 }
 
 /* P4 - ESSENTIALS */
@@ -648,24 +799,11 @@ footer {
     font-size: 1.1rem;
 }
 
-@media (max-width: 1024px) {
-    .product-grid {
-        grid-template-columns: repeat(3, 1fr);
-    }
-}
-
-@media (max-width: 768px) {
-    .product-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 1rem;
-    }
-}
-
 /* FOOTER */
 footer {
     background-color: var(--color-black);
     color: var(--color-white);
-    padding: 3rem 0;
+    padding: 6rem 0 3rem;
     font-size: 0.85rem;
     font-family: var(--font-body);
 }
@@ -674,7 +812,7 @@ footer {
     display: grid;
     grid-template-columns: repeat(4, 1fr) auto;
     gap: 3rem;
-    margin-bottom: 2rem;
+    margin-bottom: 4rem;
 }
 
 .footer-heading {
@@ -762,15 +900,33 @@ footer {
 }
 
 /* RESPONSIVE */
+@media (max-width: 1024px) {
+    .product-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .hero-text {
+        letter-spacing: -2px;
+    }
+}
+
 @media (max-width: 900px) {
     .grid-3 {
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .container {
+        padding: 0 1.5rem;
     }
 }
 
 @media (max-width: 768px) {
     .p1-first-look {
-        padding: 6rem 0;
+        padding: 4rem 0;
+    }
+
+    .section-title {
+        font-size: clamp(2.5rem, 12vw, 4rem);
     }
 
     .p2-carousel {
@@ -781,30 +937,52 @@ footer {
         padding: 0 0 5rem;
     }
 
-    .p3-banner {
-        margin-bottom: 4rem;
-        padding: 0;
+    .grid-3 {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
     }
 
     .carousel-nav {
         display: none;
     }
 
-    .banner-image {
-        height: 65vh;
+    .product-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
     }
 
     .footer-grid {
         grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+    }
+
+    .footer-col:last-child {
+        grid-column: 1 / -1;
+    }
+
+    .social-icons {
+        justify-content: flex-start;
+        margin-top: 1rem;
     }
 
     .footer-bottom {
         flex-direction: column;
         align-items: flex-start;
+        gap: 1.5rem;
     }
 
     .abs-bottom-left {
         bottom: 1.5rem;
         left: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-text {
+        font-size: clamp(3rem, 18vw, 6rem);
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr;
     }
 }

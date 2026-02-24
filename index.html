@@ -48,9 +48,23 @@
                         <path d="M16 10a4 4 0 0 1-8 0"></path>
                     </svg>
                 </button>
+                <button class="icon-btn hamburger-menu" id="hamburger-toggle" aria-label="Toggle Menu">
+                    <div class="hamburger-inner"></div>
+                </button>
             </div>
         </div>
     </nav>
+    <div class="mobile-nav" id="mobile-nav">
+        <div class="mobile-nav-container">
+            <div class="mobile-nav-links">
+                <a href="pages/new.html">New & Featured</a>
+                <a href="pages/men.html">Men</a>
+                <a href="pages/women.html">Women</a>
+                <a href="pages/kids.html">Kids</a>
+                <a href="pages/sale.html">Sale</a>
+            </div>
+        </div>
+    </div>
     <div class="hero" id="hero">
         <div class="hero-sticky">
             <canvas id="ambient-canvas"></canvas>
@@ -159,6 +173,7 @@
 
     <section class="p3-banner">
         <div class="banner-image">
+            <img src="cheetah.jpg" alt="Nike Speed" class="banner-img-element">
             <h2 class="banner-text">STEP INTO WHAT FEELS GOOD</h2>
         </div>
     </section>
@@ -262,6 +277,7 @@
     <script src="https://unpkg.com/@studio-freight/lenis@1.0.35/dist/lenis.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="js/nav.js"></script>
     <script src="js/main.js"></script>
 </body>
 
