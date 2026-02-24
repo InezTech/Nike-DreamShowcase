@@ -1,3 +1,5 @@
+gsap.registerPlugin(ScrollTrigger);
+
 class TigerExperience {
     constructor() {
         this.heroSection = document.querySelector('.hero');
@@ -30,6 +32,9 @@ class TigerExperience {
         this.render(); // initial render
 
         this.setupCarouselEvents();
+
+        // Ensure everything is calculated correctly
+        ScrollTrigger.refresh();
     }
 
     setupLenis() {
@@ -40,12 +45,12 @@ class TigerExperience {
             gestureDirection: 'vertical',
             smooth: true,
             mouseMultiplier: 1,
-            smoothTouch: false,
+            smoothTouch: true, // Enable for better mobile GSAP integration
             touchMultiplier: 2,
             infinite: false,
         });
 
-        this.lenis.on('scroll', (e) => {
+        this.lenis.on('scroll', () => {
             ScrollTrigger.update();
         });
 
@@ -108,38 +113,36 @@ class TigerExperience {
         });
 
         // Mobile Image & Text Animation
-        const isMobile = window.innerWidth <= 768;
-        if (isMobile) {
-            const mobileBg = document.querySelector('.mobile-hero-bg');
-            const heroText = document.querySelector('.hero-text');
+        const mobileBg = document.querySelector('.mobile-hero-bg');
+        const heroText = document.querySelector('.hero-text');
 
-            if (mobileBg) {
-                gsap.to(mobileBg, {
-                    scale: 1.2,
-                    ease: "none",
-                    scrollTrigger: {
-                        trigger: this.heroSection,
-                        start: "top top",
-                        end: "bottom bottom",
-                        scrub: true
-                    }
-                });
-            }
+        if (mobileBg) {
+            gsap.to(mobileBg, {
+                scale: 1.3,
+                y: -50,
+                ease: "none",
+                scrollTrigger: {
+                    trigger: this.heroSection,
+                    start: "top top",
+                    end: "bottom bottom",
+                    scrub: true
+                }
+            });
+        }
 
-            if (heroText) {
-                gsap.to(heroText, {
-                    y: -100,
-                    opacity: 0.5,
-                    scale: 0.9,
-                    ease: "none",
-                    scrollTrigger: {
-                        trigger: this.heroSection,
-                        start: "top 20%",
-                        end: "bottom bottom",
-                        scrub: true
-                    }
-                });
-            }
+        if (heroText) {
+            gsap.to(heroText, {
+                y: -150,
+                opacity: 0,
+                scale: 0.8,
+                ease: "none",
+                scrollTrigger: {
+                    trigger: this.heroSection,
+                    start: "top top",
+                    end: "bottom center",
+                    scrub: true
+                }
+            });
         }
     }
 
