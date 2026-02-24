@@ -131,10 +131,17 @@ class TigerExperience {
             this.tigerCtx.clearRect(0, 0, canvasWidth, canvasHeight);
             this.ambientCtx.clearRect(0, 0, canvasWidth, canvasHeight);
 
-            // --- Foreground Tiger Canvas (object-fit: contain logic) ---
+            const isMobile = window.innerWidth <= 768;
+
+            // --- Foreground Tiger Canvas ---
             const hRatio = canvasWidth / img.width;
             const vRatio = canvasHeight / img.height;
-            const ratio = Math.min(hRatio, vRatio);
+
+            // On mobile, we want it to be slightly more "cover" than "contain" for more impact
+            let ratio = Math.min(hRatio, vRatio);
+            if (isMobile) {
+                ratio = Math.min(hRatio, vRatio) * 1.4; // Zoom in 40% on mobile
+            }
 
             const centerShift_x = (canvasWidth - img.width * ratio) / 2;
             const centerShift_y = (canvasHeight - img.height * ratio) / 2;

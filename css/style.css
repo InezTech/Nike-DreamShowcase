@@ -162,6 +162,13 @@ h6,
     letter-spacing: -2px;
 }
 
+@media (max-width: 768px) {
+    .section-title {
+        font-size: clamp(2.5rem, 14vw, 4.5rem);
+        letter-spacing: -1px;
+    }
+}
+
 .eyebrow {
     font-size: 1.1rem;
     letter-spacing: 0.5px;
@@ -257,6 +264,31 @@ h6,
 
 .navbar.scrolled .icon-btn {
     color: var(--color-black);
+}
+
+.navbar-actions {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+}
+
+@media (max-width: 480px) {
+    .navbar {
+        padding: 0.75rem 0;
+    }
+
+    .logo-svg {
+        height: 16px;
+    }
+
+    .navbar-actions {
+        gap: 0.75rem;
+    }
+
+    .icon-btn svg {
+        width: 20px;
+        height: 20px;
+    }
 }
 
 /* HAMBURGER MENU */
@@ -411,37 +443,108 @@ h6,
 
 #tiger-canvas {
     position: absolute;
-    top: 0;
-    left: 0;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     width: 100%;
     height: 100%;
     object-fit: contain;
     z-index: 2;
-    mask-image: linear-gradient(to bottom, transparent 0%, black 8%, black 92%, transparent 100%);
-    -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 8%, black 92%, transparent 100%);
+    mask-image: radial-gradient(circle, black 60%, transparent 100%);
+    -webkit-mask-image: radial-gradient(circle, black 60%, transparent 100%);
     pointer-events: none;
 }
 
+@media (max-width: 768px) {
+    #tiger-canvas {
+        height: 70%;
+        width: 120%;
+        /* Side bleed for more impact */
+    }
+}
+
 .hero-content {
-    position: relative;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     z-index: 3;
     pointer-events: none;
-    text-align: center;
-    width: 100%;
-    padding: 0 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 8rem 2rem 4rem;
+}
+
+@media (max-width: 768px) {
+    .hero-content {
+        padding: 6rem 1rem 3rem;
+    }
 }
 
 .hero-text {
     font-family: var(--font-heading);
-    font-size: clamp(4rem, 15vw, 11rem);
-    line-height: 0.85;
-    letter-spacing: -3px;
+    font-size: clamp(4rem, 15vw, 12rem);
+    line-height: 0.8;
+    letter-spacing: -4px;
     color: var(--color-white);
     margin: 0;
     text-transform: uppercase;
-    word-break: break-word;
-    hyphens: auto;
-    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    text-shadow: 0 4px 30px rgba(0, 0, 0, 0.6);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.hero-text span {
+    display: block;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.hero-text .word-1 {
+    animation-delay: 0.2s;
+}
+
+.hero-text .word-2 {
+    animation-delay: 0.4s;
+}
+
+.hero-text .word-3 {
+    animation-delay: 0.6s;
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-text {
+        height: 100%;
+        justify-content: space-between;
+        font-size: clamp(3rem, 15vw, 6rem);
+    }
+
+    .hero-text span {
+        width: 100%;
+        text-align: center;
+    }
+
+    .hero-text .word-1 {
+        transform: translateY(20px);
+    }
+
+    .hero-text .word-3 {
+        font-size: 0.6em;
+        letter-spacing: 2px;
+        margin-top: auto;
+        padding-bottom: 2rem;
+    }
 }
 
 .scroll-indicator {
@@ -507,7 +610,13 @@ footer {
 
 /* P1 - FIRST LOOK */
 .p1-first-look {
-    padding: 8rem 0;
+    padding: 10rem 0;
+}
+
+@media (max-width: 768px) {
+    .p1-first-look {
+        padding: 8rem 0;
+    }
 }
 
 .p1-first-look .description {
@@ -616,19 +725,19 @@ footer {
 
 /* P3 - BANNER */
 .p3-banner {
-    padding: 0 4rem;
+    padding: 0;
     margin-bottom: 8rem;
+    background-color: var(--color-black);
 }
 
 .banner-image {
     width: 100%;
-    height: 90vh;
+    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
     position: relative;
     overflow: hidden;
-    border-radius: 4px;
 }
 
 .banner-img-element {
@@ -660,11 +769,26 @@ footer {
     z-index: 3;
     color: var(--color-white);
     text-align: center;
-    font-size: clamp(3rem, 10vw, 8.5rem);
-    max-width: 1200px;
-    line-height: 0.9;
-    letter-spacing: -3px;
-    text-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    font-size: clamp(3rem, 10vw, 9rem);
+    width: 90%;
+    line-height: 0.85;
+    letter-spacing: -5px;
+    text-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: var(--font-heading);
+}
+
+.banner-text::before {
+    content: 'FAST IS NOT ENOUGH';
+    display: block;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    letter-spacing: 5px;
+    margin-bottom: 2rem;
+    font-weight: 700;
+    opacity: 0.9;
 }
 
 @media (max-width: 768px) {
@@ -674,12 +798,18 @@ footer {
     }
 
     .banner-image {
-        height: 75vh;
+        height: 80vh;
     }
 
     .banner-text {
-        font-size: clamp(2.5rem, 12vw, 4.5rem);
-        letter-spacing: -1px;
+        font-size: clamp(2.5rem, 14vw, 5rem);
+        letter-spacing: -2px;
+    }
+
+    .banner-text::before {
+        font-size: 0.8rem;
+        letter-spacing: 3px;
+        margin-bottom: 1rem;
     }
 }
 
