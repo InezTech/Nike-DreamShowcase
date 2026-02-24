@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nike - Hungry For More</title>
+    <meta name="description"
+        content="Experience the ultimate in performance and style with Nike. Explore our latest collections for men, women, and kids.">
+    <meta property="og:title" content="Nike - Hungry For More">
+    <meta property="og:description" content="Push your limits with Nike innovative gear.">
+    <meta property="og:image" content="https://www.nike.com/static/otc/67e20bb43caaa5c858d2.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Antonio:wght@700&family=Archivo+Narrow:wght@500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <nav class="navbar" id="navbar">
+        <div class="navbar-container container">
+            <a href="#" class="navbar-logo">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/a/a6/Logo_NIKE.svg" alt="Nike Logo"
+                    class="logo-svg">
+            </a>
+            <div class="navbar-links">
+                <a href="pages/new.html">New & Featured</a>
+                <a href="pages/men.html">Men</a>
+                <a href="pages/women.html">Women</a>
+                <a href="pages/kids.html">Kids</a>
+                <a href="pages/sale.html">Sale</a>
+            </div>
+            <div class="navbar-actions">
+                <button class="icon-btn" aria-label="Search">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    </svg>
+                </button>
+                <button class="icon-btn" aria-label="Cart">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+                        <line x1="3" y1="6" x2="21" y2="6"></line>
+                        <path d="M16 10a4 4 0 0 1-8 0"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+    <div class="hero" id="hero">
+        <div class="hero-sticky">
+            <canvas id="ambient-canvas"></canvas>
+            <canvas id="tiger-canvas"></canvas>
+            <div class="hero-content">
+                <h1 class="hero-text">HUNGRY FOR MORE</h1>
+            </div>
+            <div class="scroll-indicator">
+                <p>SCROLL TO EXPLORE</p>
+                <div class="scroll-line"></div>
+            </div>
+        </div>
+    </div>
+
+    <section class="p1-first-look">
+        <div class="container text-center">
+            <span class="eyebrow">FIRST LOOK</span>
+            <h2 class="section-title text-black">NIKE AIR MAX PULSE</h2>
+            <p class="description mx-auto">
+                Push your limits with the latest innovation in the Air Max lineage. Designed for ultimate performance
+                and relentless speed. Experience cushioning that propels you forward.
+            </p>
+            <a href="pages/new.html" class="btn btn-black mt-4">SHOP NOW</a>
+        </div>
+    </section>
+
+    <section class="p2-carousel">
+        <div class="container">
+            <h2 class="section-title text-black mb-4">BEST OF AIR MAX</h2>
+            <div class="carousel-nav">
+                <button class="nav-btn nav-prev" aria-label="Previous">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M19 12H5M12 19l-7-7 7-7" />
+                    </svg>
+                </button>
+                <button class="nav-btn nav-next" aria-label="Next">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M5 12h14M12 5l7 7-7 7" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <div class="carousel-wrapper">
+            <div class="carousel-track" id="carousel-track">
+                <!-- Cards -->
+                <div class="carousel-card">
+                    <div class="card-image bg-light">
+                        <img src="https://images.unsplash.com/photo-1515955656352-a1fa3ffcd111?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                            alt="Nike Air Max Dn" class="product-img">
+                    </div>
+                    <div class="card-info">
+                        <h3 class="card-title">Nike Air Max Dn</h3>
+                        <p class="card-category">Men's Shoes</p>
+                        <p class="card-price">$160</p>
+                    </div>
+                </div>
+                <div class="carousel-card">
+                    <div class="card-image bg-light">
+                        <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                            alt="Nike Air Max Plus" class="product-img">
+                    </div>
+                    <div class="card-info">
+                        <h3 class="card-title">Nike Air Max Plus</h3>
+                        <p class="card-category">Women's Shoes</p>
+                        <p class="card-price">$180</p>
+                    </div>
+                </div>
+                <div class="carousel-card">
+                    <div class="card-image bg-light">
+                        <img src="https://images.unsplash.com/photo-1549298916-b41d501d3772?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                            alt="Nike Air Max 90" class="product-img">
+                    </div>
+                    <div class="card-info">
+                        <h3 class="card-title">Nike Air Max 90</h3>
+                        <p class="card-category">Men's Shoes</p>
+                        <p class="card-price">$130</p>
+                    </div>
+                </div>
+                <div class="carousel-card">
+                    <div class="card-image bg-light">
+                        <img src="https://images.unsplash.com/photo-1511556532299-8f662fc26c06?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                            alt="Nike Air Max 97" class="product-img">
+                    </div>
+                    <div class="card-info">
+                        <h3 class="card-title">Nike Air Max 97</h3>
+                        <p class="card-category">Men's Shoes</p>
+                        <p class="card-price">$175</p>
+                    </div>
+                </div>
+                <div class="carousel-card">
+                    <div class="card-image bg-light">
+                        <img src="https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                            alt="Nike Air Max 270" class="product-img">
+                    </div>
+                    <div class="card-info">
+                        <h3 class="card-title">Nike Air Max 270</h3>
+                        <p class="card-category">Women's Shoes</p>
+                        <p class="card-price">$160</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="p3-banner">
+        <div class="banner-image">
+            <h2 class="banner-text">STEP INTO WHAT FEELS GOOD</h2>
+        </div>
+    </section>
+
+    <section class="p4-essentials">
+        <div class="container">
+            <h2 class="section-title text-black mb-4">THE ESSENTIALS</h2>
+            <div class="grid-3">
+                <div class="grid-item">
+                    <div class="lifestyle-placeholder img-mens"></div>
+                    <a href="pages/men.html" class="btn btn-white abs-bottom-left">Men's</a>
+                </div>
+                <div class="grid-item">
+                    <div class="lifestyle-placeholder img-womens"></div>
+                    <a href="pages/women.html" class="btn btn-white abs-bottom-left">Women's</a>
+                </div>
+                <div class="grid-item">
+                    <div class="lifestyle-placeholder img-kids"></div>
+                    <a href="pages/kids.html" class="btn btn-white abs-bottom-left">Kids'</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4 class="footer-heading">FIND A STORE</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Nike Journal</a></li>
+                        <li><a href="#">Sign Up for Email</a></li>
+                        <li><a href="#">Become a Member</a></li>
+                        <li><a href="#">Feedback</a></li>
+                        <li><a href="#">Promo Codes</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4 class="footer-heading">GET HELP</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Order Status</a></li>
+                        <li><a href="#">Shipping and Delivery</a></li>
+                        <li><a href="#">Returns</a></li>
+                        <li><a href="#">Payment Options</a></li>
+                        <li><a href="#">Gift Card Balance</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4 class="footer-heading">ABOUT NIKE</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">News</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Investors</a></li>
+                        <li><a href="#">Purpose</a></li>
+                        <li><a href="#">Sustainability</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <div class="social-icons">
+                        <a href="#" class="social-icon" aria-label="Instagram">
+                            <svg viewBox="0 0 24 24">
+                                <path
+                                    d="M12 2.163c3.204 0 3.584.012 4.85.07 1.366.062 2.633.332 3.608 1.308.975.975 1.247 2.242 1.308 3.608.058 1.266.07 1.646.07 4.85s-.012 3.584-.07 4.85c-.061 1.366-.333 2.633-1.308 3.608-.975.975-2.242 1.247-3.608 1.308-1.266.058-1.646.07-4.85.07s-3.584-.012-4.85-.07c-1.366-.061-2.633-.333-3.608-1.308-.975-.975-1.247-2.242-1.308-3.608-.058-1.266-.07-1.646-.07-4.85s.012-3.584.07-4.85c.062-1.366.334-2.633 1.308-3.608.975-.975 2.242-1.247 3.608-1.308 1.266-.058 1.646-.07 4.85-.07zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948s.014 3.667.072 4.947c.2 4.337 2.617 6.76 6.979 6.98 1.281.058 1.689.072 4.948.072s3.667-.014 4.947-.072c4.339-.2 6.761-2.618 6.981-6.98.058-1.281.072-1.689.072-4.948s-.014-3.667-.072-4.947c-.2-4.338-2.617-6.76-6.98-6.981-1.28-.058-1.689-.072-4.948-.072zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.791-4-4s1.791-4 4-4 4 1.791 4 4-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+                            </svg>
+                        </a>
+                        <a href="#" class="social-icon" aria-label="Twitter">
+                            <svg viewBox="0 0 24 24">
+                                <path
+                                    d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z" />
+                            </svg>
+                        </a>
+                        <a href="#" class="social-icon" aria-label="Facebook">
+                            <svg viewBox="0 0 24 24">
+                                <path
+                                    d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z" />
+                            </svg>
+                        </a>
+                        <a href="#" class="social-icon" aria-label="YouTube">
+                            <svg viewBox="0 0 24 24">
+                                <path
+                                    d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.612 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Nike, Inc. All Rights Reserved</p>
+                <div class="footer-policies">
+                    <a href="#">Guides</a>
+                    <a href="#">Terms of Sale</a>
+                    <a href="#">Terms of Use</a>
+                    <a href="#">Nike Privacy Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/@studio-freight/lenis@1.0.35/dist/lenis.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>
